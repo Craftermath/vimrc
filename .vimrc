@@ -219,8 +219,7 @@ set scrolloff=3
 "" Status bar
 set laststatus=2
 
-"" Use 
-modeline overrides
+"" Use modeline overrides
 set nomodeline
 set modelines=0
 
