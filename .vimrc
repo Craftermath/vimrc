@@ -9,7 +9,7 @@ endif
 
 let vimplug_exists=expand('~/.vim/autoload/plug.vim')
 
-let g:vim_bootstrap_langs = "html,python"
+let g:vim_bootstrap_langs = "html,python, go"
 let g:vim_bootstrap_editor = "vim"				" nvim or vim
 
 if !filereadable(vimplug_exists)
@@ -95,6 +95,11 @@ Plug 'davidhalter/jedi-vim'
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
 
+" go
+"" Go Lang Bundle
+Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
+
+
 "*****************************************************************************
 "*****************************************************************************
 
@@ -129,8 +134,8 @@ set softtabstop=0
 set shiftwidth=4
 set expandtab
 
-"" Map leader to ,
-"let mapleader=','
+" Map leader to ç
+let mapleader='ç'
 
 "" Enable hidden buffers
 set hidden
@@ -214,9 +219,10 @@ set scrolloff=3
 "" Status bar
 set laststatus=2
 
-"" Use modeline overrides
-set modeline
-set modelines=10
+"" Use 
+modeline overrides
+set nomodeline
+set modelines=0
 
 set title
 set titleold="Terminal"
@@ -412,9 +418,11 @@ if has('autocmd')
 endif
 
 "" Copy/Paste/Cut
-if has('unnamedplus')
-  set clipboard=unnamed,unnamedplus
-endif
+"if has('unnamedplus')
+"  set clipboard=unnamed,unnamedplus
+"endif
+
+set clipboard=unnamed
 
 noremap YY "+y<CR>
 noremap <leader>p "+gP<CR>
@@ -485,7 +493,7 @@ let g:jedi#completions_command = "<C-Space>"
 let g:jedi#smart_auto_mappings = 0
 
 " syntastic
-let g:syntastic_python_checkers=['python', 'flake8']
+let g:syntastic_python_checkers=['flake8']
 
 " vim-airline
 let g:airline#extensions#virtualenv#enabled = 1
